@@ -1,0 +1,48 @@
+SUMMARY
+
+This repo contains scripts and files for running three experiments: VAPOR real-data benchmarking; mapping without VAPOR; mapping with VAPOR. 
+
+REQUIREMENTS
+
+The following are required, and where applicable must be in your PATH:
+    Minimap2 2.12
+    Python3.x
+    BioPython 1.72
+    BLAST 2.7.1+
+    GNU Parallel 20160222
+
+For plotting, pandas 0.23.4, matplotlib 2.2.3, NumPy 1.15.2, and seaborn 0.9.0 are required.
+
+refs/: a set of used resources which can be downloaded from https://s3.climb.ac.uk/vapor-benchmark-data/vapor_benchmarking_realdata_refs_06_03_19.tar.gz
+
+reads/: a set of reads which can be downloaded from https://s3.climb.ac.uk/vapor-benchmark-data/vapor_benchmarking_realdata_reads_04_01_18.tar
+
+single_full_length_assembled_contigs/: a set of assembled contigs from each read set, which can be downloaded from https://s3.climb.ac.uk/vapor_benchmarking_realdata_contigs_06_03_19.tar.gz
+
+USAGE
+
+For mapping without VAPOR pre-classification, execute:
+
+    parallel --jobs N < code/parallel_commands/mapping_no_vapor.pcom.sh > logs/mapping_no_vapor.log
+
+For mapping with VAPOR pre-classification, execute:
+
+    parallel --jobs N < code/parallel_commands/mapping_vapor.pcom.sh > logs/mapping_vapor.log
+
+For evaluation of mapping results, execute:
+
+    bash code/fetch_mapping_results.sh > mapping_results.csv
+
+For VAPOR classification, execute:
+
+    parallel --jobs N < code/parallel_commands/vapor_benchmark.pcom.sh > logs/vapor_benchmark.log
+
+For evaluation of VAPOR results, execute:
+
+    parallel --jobs N < code/parallel_commands/assess_vapor_results.sh > logs/assess_vapor_results.log
+    bash code/fetch_vapor_results.sh > vapor_benchmark_results.csv
+
+To plot the results of these experiments, run:
+
+    python3 plotting/plot_vapor_realdata_hists.py vapor_benchmark_results.csv
+    python3 plotting/plot_mapping_with_and_without_vapor.py mapping_results.csv
