@@ -44,5 +44,5 @@ For evaluation of VAPOR results, execute:
 
 To plot the results of these experiments, run:
 
-    python3 plotting/plot_vapor_realdata_hists.py vapor_benchmark_results.csv
+    python3 plotting/plot_vapor_realdata_scatters.py vapor_benchmark_results.csv
     python3 plotting/plot_mapping_with_and_without_vapor.py mapping_results.csv
