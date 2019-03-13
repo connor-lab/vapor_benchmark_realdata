@@ -14,7 +14,10 @@ fnames = df['FNAME']
 
 df.fillna(value=0, inplace=True)
 
+
 arr = df.values[:,1:].astype(int)
+# remove anything with less than 1000 mapped reads (without vapor)
+arr = arr[np.where(arr[:,0] > 1000)]
 gain = arr[:,1]-arr[:,0]
 
 print("Rows with negative gain:")
