@@ -15,7 +15,7 @@ For plotting, pandas 0.23.4, matplotlib 2.2.3, NumPy 1.15.2, and seaborn 0.9.0 a
 
 refs/: a set of used resources which can be downloaded from https://s3.climb.ac.uk/vapor-benchmark-data/vapor_benchmarking_realdata_refs_06_03_19.tar.gz
 
-reads/: a set of reads which can be downloaded from https://s3.climb.ac.uk/vapor-benchmark-data/vapor_benchmarking_realdata_reads_04_01_18.tar
+reads/: a set of reads which can be downloaded from https://s3.climb.ac.uk/vapor-benchmark-data/vapor_benchmarking_realdata_reads_filtered_13_03_18.tar
 
 single_full_length_assembled_contigs/: a set of assembled contigs from each read set, which can be downloaded from https://s3.climb.ac.uk/vapor_benchmarking_realdata_contigs_06_03_19.tar.gz
 
